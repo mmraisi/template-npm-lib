@@ -1,15 +1,18 @@
 # Node.js TypeScript Template
 
-This is a template repository for Node.js projects written in TypeScript. It provides a structured starting point for building Node.js applications with TypeScript support, including configuration for linting, testing, automatic releases, dependency updates, and more.
+This is a template repository for NPM package projects written in TypeScript. It provides a structured starting point, including configuration for linting, testing, automatic releases, dependency updates, and more.
 
 ## Features
 
--   **Project Structure**: Organized file structure from `src` directory for source files to `server.ts`.
+-   **Project Structure**: Organized file structure from `src` directory for source files to `index.ts`.
 -   **Testing Support**: Integrated testing setup with a dedicated `test` directory.
 -   **Linting with ESLint**: Includes ESLint configuration for code linting.
--   **Semantic Releases**: Automated versioning and release notes generation using semantic versioning.
+-   **Semantic Releases with npm Publish**: Automated versioning, release notes generation, and package publishing to npm using semantic versioning.
 -   **Dependabot**: Automatic dependency updates through GitHub Dependabot.
 -   **Node Workflow**: GitHub Actions workflow for Node.js testing on push and pull requests.
+
+> [!NOTE]  
+> By default, package publishing to npm using semantic versioning is disabled. To enable it, you need to set or remove the `private` property in the `package.json` file to false.
 
 ## Usage
 
@@ -42,9 +45,22 @@ Follow these steps to get your development environment set up:
     npm test
     ```
 
-4. Start the server:
+4. Build the package:
+
     ```bash
-    npm start
+    npm run build
+    ```
+
+5. Log in to npm if not already:
+
+    ```bash
+    npm login
+    ```
+
+6. Publish the package to npm:
+
+    ```bash
+    npm publish
     ```
 
 ## Contributing
