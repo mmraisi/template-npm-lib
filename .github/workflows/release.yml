@@ -1,7 +1,8 @@
 name: Semantic Release
 on:
     push:
-        branches: [main]
+        branches:
+            - main
 jobs:
     release:
         name: Semantic Release
@@ -9,15 +10,16 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
-
             - name: Setup Node.js
               uses: actions/setup-node@v2
               with:
-                  node-version: '20'
+                  node-version: "20"
             - name: Install dependencies
               run: npm ci
-
+            - name: Build package
+              run: npm run build
             - name: Run semantic-release
               run: npx semantic-release
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
